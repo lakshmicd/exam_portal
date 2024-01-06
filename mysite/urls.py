@@ -21,5 +21,10 @@ from exam_portal_.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage_view, name="homepage"),
-    path('login/',login_view,name="login"),
+    path('login/',s_login_view,name="login"),
+    path('register/',s_register_view,name="register"),
+    path('resetPassword/',s_reset_pass,name="resetPassword"),
+    path('resetPasswordDone/',s_reset_done,name="resetPasswordDone"),
+    path('setNewPassword/',s_new_pass,name="setNewPassword"),
+ 
 ]

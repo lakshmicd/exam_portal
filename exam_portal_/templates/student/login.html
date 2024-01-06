@@ -45,7 +45,7 @@ input[type=submit]:hover{
 
 					<h4>Login to your account</h4>
 					</div>
-					<form  method="post">
+					<form action="{% url 'login' %}" method="post">
 						{% csrf_token %}
 
 						{% include 'partials/_messages.html' %}
@@ -65,11 +65,11 @@ input[type=submit]:hover{
 
 				</form>
 					<div class="container">
-						<span class = "text-lead lead"> Dont have an account? </span><a href = "#" class="" style="color:#745959;">Register</a>
+						<span class = "text-lead lead"> Dont have an account? </span><a href = "{% url 'register' %}" class="" style="color:#745959;">Register</a>
 
 						<br>
 
-						<span  class = "text-lead lead"> Forgot Password? </span><a href = "#" class="" style="color:#745959;">Reset</a>
+						<span  class = "text-lead lead"> Forgot Password? </span><a href = "{% url 'resetPassword' %}" class="" style="color:#745959;">Reset</a>
 					</div>
 				</div>
 			</div>
