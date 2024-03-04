@@ -1,14 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class Faculty(models.Model):
-    full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=255)
-    profile_pic = models.FileField(upload_to='faculty_pics', default='default_faculty.jpg')
-    department = models.CharField(max_length=255)
-    designation = models.CharField(max_length=255)
-    mobile = models.CharField(max_length=255)
+
+class FacultyInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=200, blank=True)
+    subject = models.CharField(max_length=50, blank=True)
+    picture = models.ImageField(upload_to = 'faculty_profile_pics', blank=True)
 
     def __str__(self):
-        return self.full_name
+        return self.user.username
+    
+    class Meta:
+        verbose_name_plural = 'Faculty Info'
